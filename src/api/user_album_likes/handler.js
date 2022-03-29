@@ -13,7 +13,7 @@ class UserAlbumLikesHandler {
 
     await this._albumsService.verifyAlbum(albumId);
 
-    const liked = await this._userAlbumLikesService.verifyAlbumLikeByUser(userId, albumId);
+    const liked = await this._userAlbumLikesService.verifyAlbumLikes(userId, albumId);
     if (!liked) {
       await this._userAlbumLikesService.postLikeToAlbum(userId, albumId);
       const response = h.response({
